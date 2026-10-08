@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="ru" data-theme="light" data-page="kit">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1920">
+  <title>Mono design — UI Kit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/ui-kit.css">
+</head>
+<body>
+<!-- СГЕНЕРИРОВАНО: node tools/build-kit.mjs (источник — tokens/tokens.json) -->
+<main class="kit">
+  <section class="kit-cover">
+    <div><p class="tag t-label">[ UI kit ]</p><h1 class="t-h2" style="margin-top:var(--space-16)">Mono design</h1></div>
+    <div class="kit-cover__meta t-label"><span>Hero Section · v1.0</span><span>Tokens: primitives → semantic (dark / light) → components</span><span>Frame 1920 × 1080 · grid 7 × 6 · 1rem = 10px</span></div>
+  </section>
+
+  <section class="kit-sec">
+    <div class="kit-sec__head"><p class="t-label">01 · Color / Primitives</p><p class="t-body">Палитра бренда из брифа + три производных тона (помечены). Примитивы не используются в компонентах напрямую — только через семантические токены.</p></div>
+    
+  <p class="kit-sub t-label">olive</p>
+  <div class="sw-group">
+    <div class="sw">
+      <div class="sw__chip" style="background:#7A8452"></div>
+      <p class="sw__name">color/olive/500</p>
+      <div class="sw__meta t-label-s"><span>#7A8452</span><span>--color-olive-500</span><span>Оливково-каменный, бренд</span></div>
+    </div>
+    <div class="sw">
+      <div class="sw__chip" style="background:#525C2F"></div>
+      <p class="sw__name">color/olive/700</p>
+      <div class="sw__meta t-label-s"><span>#525C2F</span><span>--color-olive-700</span><span>Оливково-каменный, глубокий, бренд</span></div>
+    </div>
+  </div>
+  <p class="kit-sub t-label">blue</p>
+  <div class="sw-group">
+    <div class="sw">
+      <div class="sw__chip" style="background:#2C3C66"></div>
+      <p class="sw__name">color/blue/500</p>
+      <div class="sw__meta t-label-s"><span>#2C3C66</span><span>--color-blue-500</span><span>Инженерный синий, бренд</span></div>
+    </div>
+    <div class="sw">
+      <div class="sw__chip" style="background:#030824"></div>
+      <p class="sw__name">color/blue/900</p>
+      <div class="sw__meta t-label-s"><span>#030824</span><span>--color-blue-900</span><span>Инженерный синий, глубокий, бренд</span></div>
+    </div>
+  </div>
+  <p class="kit-sub t-label">grey</p>
+  <div class="sw-group">
+    <div class="sw">
+      <div class="sw__chip" style="background:#B3B3B3"></div>
+      <p class="sw__name">color/grey/300</p>
+      <div class="sw__meta t-label-s"><span>#B3B3B3</span><span>--color-grey-300</span><span>Архитектурный серый, бренд</span></div>
+    </div>
+    <div class="sw">
+      <div class="sw__chip" style="background:#5F5F5F"></div>
+      <p class="sw__name">color/grey/600</p>
+      <div class="sw__meta t-label-s"><span>#5F5F5F</span><span>--color-grey-600</span><span>Архитектурный серый, глубокий, бренд</span></div>
+    </div>
+  </div>
+  <p class="kit-sub t-label">stone</p>
+  <div class="sw-group">
+    <div class="sw">
+      <div class="sw__chip" style="background:#FFFFFF"></div>
+      <p class="sw__name">color/stone/0</p>
+      <div class="sw__meta t-label-s"><span>#FFFFFF</span><span>--color-stone-0</span><span>Тёплый каменный белый, бренд</span></div>
+    </div>
+    <div class="sw">
+      <div class="sw__chip" style="background:#F2F1EC"></div>
+      <p class="sw__name">color/stone/50</p>
+      <div class="sw__meta t-label-s"><span>#F2F1EC</span><span>--color-stone-50</span><span>Производный: текст поверх фото</span></div>
+    </div>
+    <div class="sw">
+      <div class="sw__chip" style="background:#EBEAE5"></div>
+      <p class="sw__name">color/stone/100</p>
+      <div class="sw__meta t-label-s"><span>#EBEAE5</span><span>--color-stone-100</span><span>Производный: фон светлой темы (между #FFFFFF и #D8D6CB)</span></div>
+    </div>
+    <div class="sw">
+      <div class="sw__chip" style="background:#D8D6CB"></div>
+      <p class="sw__name">color/stone/200</p>
+      <div class="sw__meta t-label-s"><span>#D8D6CB</span><span>--color-stone-200</span><span>Тёплый каменный белый, бренд</span></div>
+    </div>
+  </div>
+  <p class="kit-sub t-label">black</p>
+  <div class="sw-group">
+    <div class="sw">
+      <div class="sw__chip" style="background:#3A3A3A"></div>
+      <p class="sw__name">color/black/700</p>
+      <div class="sw__meta t-label-s"><span>#3A3A3A</span><span>--color-black-700</span><span>Мягкий архитектурный чёрный, бренд</span></div>
+    </div>
+    <div class="sw">
+      <div class="sw__chip" style="background:#1A1A19"></div>
+      <p class="sw__name">color/black/800</p>
+      <div class="sw__meta t-label-s"><span>#1A1A19</span><span>--color-black-800</span><span>Производный: поверхность карточек в тёмной теме</span></div>
+    </div>
+    <div class="sw">
+      <div class="sw__chip" style="background:#0F0F0F"></div>
+      <p class="sw__name">color/black/900</p>
+      <div class="sw__meta t-label-s"><span>#0F0F0F</span><span>--color-black-900</span><span>Мягкий архитектурный чёрный, глубокий, бренд</span></div>
+    </div>
+  </div>
+  </section>
+
+  <section class="kit-sec">
+    <div class="kit-sec__head"><p class="t-label">02 · Color / Semantic</p><p class="t-body">Коллекция с двумя режимами — dark и light. Компоненты ссылаются только на эти переменные, поэтому тема меняется одной сменой режима.</p></div>
+    <table class="sem"><thead><tr><th class="t-label-s">Token</th><th class="t-label-s">Dark</th><th class="t-label-s">Light</th></tr></thead><tbody><tr><td><span class="sem__name">--bg</span></td><td><div class="sem__cell" data-theme="dark"><span class="sem__chip" style="background:var(--bg)"></span>
+      <span class="t-label-s">color/black/900</span></div></td><td><div class="sem__cell" data-theme="light"><span class="sem__chip" style="background:var(--bg)"></span>
+      <span class="t-label-s">color/stone/100</span></div></td></tr><tr><td><span class="sem__name">--surface</span></td><td><div class="sem__cell" data-theme="dark"><span class="sem__chip" style="background:var(--surface)"></span>
+      <span class="t-label-s">color/black/800</span></div></td><td><div class="sem__cell" data-theme="light"><span class="sem__chip" style="background:var(--surface)"></span>
+      <span class="t-label-s">color/stone/0</span></div></td></tr><tr><td><span class="sem__name">--fg</span></td><td><div class="sem__cell" data-theme="dark"><span class="sem__chip" style="background:var(--fg)"></span>
+      <span class="t-label-s">color/stone/200</span></div></td><td><div class="sem__cell" data-theme="light"><span class="sem__chip" style="background:var(--fg)"></span>
+      <span class="t-label-s">color/black/900</span></div></td></tr><tr><td><span class="sem__name">--fg-muted</span></td><td><div class="sem__cell" data-theme="dark"><span class="sem__chip" style="background:var(--fg-muted)"></span>
+      <span class="t-label-s">#D8D6CB85<br>stone.200 @ 52%</span></div></td><td><div class="sem__cell" data-theme="light"><span class="sem__chip" style="background:var(--fg-muted)"></span>
+      <span class="t-label-s">#0F0F0F85<br>black.900 @ 52%</span></div></td></tr><tr><td><span class="sem__name">--fg-disabled</span></td><td><div class="sem__cell" data-theme="dark"><span class="sem__chip" style="background:var(--fg-disabled)"></span>
+      <span class="t-label-s">#D8D6CB4D<br>stone.200 @ 30%</span></div></td><td><div class="sem__cell" data-theme="light"><span class="sem__chip" style="background:var(--fg-disabled)"></span>
+      <span class="t-label-s">#0F0F0F4D<br>black.900 @ 30%</span></div></td></tr><tr><td><span class="sem__name">--line</span></td><td><div class="sem__cell" data-theme="dark"><span class="sem__chip" style="background:var(--line)"></span>
+      <span class="t-label-s">#D8D6CB29<br>stone.200 @ 16%</span></div></td><td><div class="sem__cell" data-theme="light"><span class="sem__chip" style="background:var(--line)"></span>
+      <span class="t-label-s">#0F0F0F29<br>black.900 @ 16%</span></div></td></tr><tr><td><span class="sem__name">--line-soft</span></td><td><div class="sem__cell" data-theme="dark"><span class="sem__chip" style="background:var(--line-soft)"></span>
+      <span class="t-label-s">#D8D6CB0F<br>stone.200 @ 6%</span></div></td><td><div class="sem__cell" data-theme="light"><span class="sem__chip" style="background:var(--line-soft)"></span>
+      <span class="t-label-s">#0F0F0F0F<br>black.900 @ 6%</span></div></td></tr><tr><td><span class="sem__name">--surface-line</span></td><td><div class="sem__cell" data-theme="dark"><span class="sem__chip" style="background:var(--surface-line)"></span>
+      <span class="t-label-s">#D8D6CB1F<br>stone.200 @ 12%</span></div></td><td><div class="sem__cell" data-theme="light"><span class="sem__chip" style="background:var(--surface-line)"></span>
+      <span class="t-label-s">#0F0F0F1A<br>black.900 @ 10%</span></div></td></tr><tr><td><span class="sem__name">--accent</span></td><td><div class="sem__cell" data-theme="dark"><span class="sem__chip" style="background:var(--accent)"></span>
+      <span class="t-label-s">color/olive/500</span></div></td><td><div class="sem__cell" data-theme="light"><span class="sem__chip" style="background:var(--accent)"></span>
+      <span class="t-label-s">color/olive/700</span></div></td></tr><tr><td><span class="sem__name">--accent-alt</span></td><td><div class="sem__cell" data-theme="dark"><span class="sem__chip" style="background:var(--accent-alt)"></span>
+      <span class="t-label-s">color/blue/500</span></div></td><td><div class="sem__cell" data-theme="light"><span class="sem__chip" style="background:var(--accent-alt)"></span>
+      <span class="t-label-s">color/blue/500</span></div></td></tr><tr><td><span class="sem__name">--on-photo</span></td><td><div class="sem__cell" data-theme="dark"><span class="sem__chip" style="background:var(--on-photo)"></span>
+      <span class="t-label-s">color/stone/50</span></div></td><td><div class="sem__cell" data-theme="light"><span class="sem__chip" style="background:var(--on-photo)"></span>
+      <span class="t-label-s">color/stone/50</span></div></td></tr><tr><td><span class="sem__name">--btn-primary-bg</span></td><td><div class="sem__cell" data-theme="dark"><span class="sem__chip" style="background:var(--btn-primary-bg)"></span>
+      <span class="t-label-s">color/olive/500</span></div></td><td><div class="sem__cell" data-theme="light"><span class="sem__chip" style="background:var(--btn-primary-bg)"></span>
+      <span class="t-label-s">color/olive/700</span></div></td></tr><tr><td><span class="sem__name">--btn-primary-fg</span></td><td><div class="sem__cell" data-theme="dark"><span class="sem__chip" style="background:var(--btn-primary-fg)"></span>
+      <span class="t-label-s">color/black/900</span></div></td><td><div class="sem__cell" data-theme="light"><span class="sem__chip" style="background:var(--btn-primary-fg)"></span>
+      <span class="t-label-s">color/stone/0</span></div></td></tr><tr><td><span class="sem__name">--btn-primary-bg-hover</span></td><td><div class="sem__cell" data-theme="dark"><span class="sem__chip" style="background:var(--btn-primary-bg-hover)"></span>
+      <span class="t-label-s">color/stone/200</span></div></td><td><div class="sem__cell" data-theme="light"><span class="sem__chip" style="background:var(--btn-primary-bg-hover)"></span>
+      <span class="t-label-s">color/black/900</span></div></td></tr><tr><td><span class="sem__name">--btn-primary-fg-hover</span></td><td><div class="sem__cell" data-theme="dark"><span class="sem__chip" style="background:var(--btn-primary-fg-hover)"></span>
+      <span class="t-label-s">color/black/900</span></div></td><td><div class="sem__cell" data-theme="light"><span class="sem__chip" style="background:var(--btn-primary-fg-hover)"></span>
+      <span class="t-label-s">color/stone/100</span></div></td></tr><tr><td><span class="sem__name">--btn-secondary-border</span></td><td><div class="sem__cell" data-theme="dark"><span class="sem__chip" style="background:var(--btn-secondary-border)"></span>
+      <span class="t-label-s">#D8D6CB29</span></div></td><td><div class="sem__cell" data-theme="light"><span class="sem__chip" style="background:var(--btn-secondary-border)"></span>
+      <span class="t-label-s">#0F0F0F29</span></div></td></tr><tr><td><span class="sem__name">--btn-secondary-bg-hover</span></td><td><div class="sem__cell" data-theme="dark"><span class="sem__chip" style="background:var(--btn-secondary-bg-hover)"></span>
+      <span class="t-label-s">color/stone/200</span></div></td><td><div class="sem__cell" data-theme="light"><span class="sem__chip" style="background:var(--btn-secondary-bg-hover)"></span>
+      <span class="t-label-s">color/black/900</span></div></td></tr><tr><td><span class="sem__name">--btn-secondary-fg-hover</span></td><td><div class="sem__cell" data-theme="dark"><span class="sem__chip" style="background:var(--btn-secondary-fg-hover)"></span>
+      <span class="t-label-s">color/black/900</span></div></td><td><div class="sem__cell" data-theme="light"><span class="sem__chip" style="background:var(--btn-secondary-fg-hover)"></span>
+      <span class="t-label-s">color/stone/100</span></div></td></tr><tr><td><span class="sem__name">--btn-disabled-bg</span></td><td><div class="sem__cell" data-theme="dark"><span class="sem__chip" style="background:var(--btn-disabled-bg)"></span>
+      <span class="t-label-s">#D8D6CB0F</span></div></td><td><div class="sem__cell" data-theme="light"><span class="sem__chip" style="background:var(--btn-disabled-bg)"></span>
+      <span class="t-label-s">#0F0F0F0F</span></div></td></tr></tbody></table>
+  </section>
+
+  <section class="kit-sec">
+    <div class="kit-sec__head"><p class="t-label">03 · Typography</p><p class="t-body">Два шрифта — два языка: Inter Tight для эмоции и смысла, JetBrains Mono для инженерного слоя. 11 текстовых стилей.</p></div>
+    <div class="ty">
+    <div class="ty__meta t-label-s">
+      <b class="t-label">type/display</b><span>H1 hero</span>
+      <span>Inter Tight · 400</span>
+      <span>208px / 0.9 · -5.5%</span>
+      <span>.t-display</span>
+    </div>
+    <div class="ty__sample t-display">Renovation.</div>
+  </div><div class="ty">
+    <div class="ty__meta t-label-s">
+      <b class="t-label">type/h2</b><span>Заголовок секции</span>
+      <span>Inter Tight · 400</span>
+      <span>104px / 0.95 · -5%</span>
+      <span>.t-h2</span>
+    </div>
+    <div class="ty__sample t-h2">Complex spaces</div>
+  </div><div class="ty">
+    <div class="ty__meta t-label-s">
+      <b class="t-label">type/title-l</b><span>Подпись проекта на фото</span>
+      <span>Inter Tight · 400</span>
+      <span>80px / 0.95 · -4.5%</span>
+      <span>.t-title-l</span>
+    </div>
+    <div class="ty__sample t-title-l">From structure</div>
+  </div><div class="ty">
+    <div class="ty__meta t-label-s">
+      <b class="t-label">type/title-s</b><span>Заголовок карточки</span>
+      <span>Inter Tight · 400</span>
+      <span>32px / 1 · -3%</span>
+      <span>.t-title-s</span>
+    </div>
+    <div class="ty__sample t-title-s">Villa Lumière</div>
+  </div><div class="ty">
+    <div class="ty__meta t-label-s">
+      <b class="t-label">type/logo</b><span>Логотип (wordmark)</span>
+      <span>Inter Tight · 500</span>
+      <span>32px / 1 · -4%</span>
+      <span>.t-logo</span>
+    </div>
+    <div class="ty__sample t-logo">mono</div>
+  </div><div class="ty">
+    <div class="ty__meta t-label-s">
+      <b class="t-label">type/body-l</b><span>Подзаголовок hero</span>
+      <span>Inter Tight · 400</span>
+      <span>26px / 1.3 · -1%</span>
+      <span>.t-body-l</span>
+    </div>
+    <div class="ty__sample t-body-l">Apartments and villas. Complex transformations.</div>
+  </div><div class="ty">
+    <div class="ty__meta t-label-s">
+      <b class="t-label">type/body</b><span>Основной текст</span>
+      <span>Inter Tight · 400</span>
+      <span>20px / 1.45 · 0%</span>
+      <span>.t-body</span>
+    </div>
+    <div class="ty__sample t-body">Analysis, design, engineering, construction and handover — one studio, one point of contact.</div>
+  </div><div class="ty">
+    <div class="ty__meta t-label-s">
+      <b class="t-label">type/ui</b><span>Навигация, ссылки в шапке</span>
+      <span>Inter Tight · 400</span>
+      <span>18px / 1.4 · 0%</span>
+      <span>.t-ui</span>
+    </div>
+    <div class="ty__sample t-ui">Projects  Services  Process  Studio  Journal</div>
+  </div><div class="ty">
+    <div class="ty__meta t-label-s">
+      <b class="t-label">type/button</b><span>Кнопки</span>
+      <span>Inter Tight · 400</span>
+      <span>17px / 1 · 0%</span>
+      <span>.t-button</span>
+    </div>
+    <div class="ty__sample t-button">Schedule a Consultation</div>
+  </div><div class="ty">
+    <div class="ty__meta t-label-s">
+      <b class="t-label">type/label</b><span>Чертёжные подписи, UPPERCASE</span>
+      <span>JetBrains Mono · 400</span>
+      <span>14px / 1.4 · 2% · UPPERCASE</span>
+      <span>.t-label</span>
+    </div>
+    <div class="ty__sample t-label">[ 01 ] Turnkey interior renovation</div>
+  </div><div class="ty">
+    <div class="ty__meta t-label-s">
+      <b class="t-label">type/label-s</b><span>Мелкие пометки на чертеже, UPPERCASE</span>
+      <span>JetBrains Mono · 400</span>
+      <span>12px / 1.4 · 2% · UPPERCASE</span>
+      <span>.t-label-s</span>
+    </div>
+    <div class="ty__sample t-label-s">6 700 · +3.200 · Section A–A</div>
+  </div>
+  </section>
+
+  <section class="kit-sec">
+    <div class="kit-sec__head"><p class="t-label">04 · Grid &amp; Layout</p><p class="t-body">Модульная сетка клиента: кадр 1920 × 1080, 7 колонок × 6 рядов, поля 60, гаттер 8. Асайд 577 (поле + 2 колонки) + контентная зона 1343 (5 колонок + поле). В Figma: Layout grid → Columns 7 / Stretch / Margin 60 / Gutter 8 и Rows 6 / Stretch / Margin 60 / Gutter 8.</p></div>
+    <div class="kit-frame-wrap">
+      <div class="kit-frame">
+        <div class="kit-frame__cols"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="kit-frame__rows"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <span class="kit-frame__aside"></span>
+        <span class="kit-frame__tag kit-frame__tag--a t-label-s">Aside 577</span>
+        <span class="kit-frame__tag kit-frame__tag--c t-label-s">Content 1343</span>
+      </div>
+      <div class="kit-specs"><div class="kit-spec"><span class="t-label-s">Frame</span><b>1920px × 1080px</b></div><div class="kit-spec"><span class="t-label-s">Columns × Rows</span><b>7 × 6</b></div><div class="kit-spec"><span class="t-label-s">Margin</span><b>60px</b></div><div class="kit-spec"><span class="t-label-s">Gutter</span><b>8px</b></div><div class="kit-spec"><span class="t-label-s">Column</span><b>250.29px</b></div><div class="kit-spec"><span class="t-label-s">Row</span><b>153.33px</b></div><div class="kit-spec"><span class="t-label-s">Aside / Content</span><b>577px / 1343px</b></div><div class="kit-spec"><span class="t-label-s">Header / Footer</span><b>60px / 60px</b></div></div>
+    </div>
+    <p class="kit-sub t-label">Колонки в реальном размере</p>
+    <div class="kit-grid"><span class="t-label-s">1</span><span class="t-label-s">2</span><span class="t-label-s">3</span><span class="t-label-s">4</span><span class="t-label-s">5</span><span class="t-label-s">6</span><span class="t-label-s">7</span></div>
+  </section>
+
+  <section class="kit-sec">
+    <div class="kit-sec__head"><p class="t-label">05 · Spacing · Radius · Stroke · Size</p><p class="t-body">Шкала отступов на базе 4/8. Скругления: 0 для плоскостей (архитектурная строгость), pill только для кнопок.</p></div>
+    <div class="sp"><div class="sp__meta t-label-s"><span>space/4</span><span>4px</span></div><div><div class="sp__bar" style="width:0.4rem"></div></div></div><div class="sp"><div class="sp__meta t-label-s"><span>space/8</span><span>8px</span></div><div><div class="sp__bar" style="width:0.8rem"></div></div></div><div class="sp"><div class="sp__meta t-label-s"><span>space/12</span><span>12px</span></div><div><div class="sp__bar" style="width:1.2rem"></div></div></div><div class="sp"><div class="sp__meta t-label-s"><span>space/16</span><span>16px</span></div><div><div class="sp__bar" style="width:1.6rem"></div></div></div><div class="sp"><div class="sp__meta t-label-s"><span>space/20</span><span>20px</span></div><div><div class="sp__bar" style="width:2rem"></div></div></div><div class="sp"><div class="sp__meta t-label-s"><span>space/24</span><span>24px</span></div><div><div class="sp__bar" style="width:2.4rem"></div></div></div><div class="sp"><div class="sp__meta t-label-s"><span>space/32</span><span>32px</span></div><div><div class="sp__bar" style="width:3.2rem"></div></div></div><div class="sp"><div class="sp__meta t-label-s"><span>space/40</span><span>40px</span></div><div><div class="sp__bar" style="width:4rem"></div></div></div><div class="sp"><div class="sp__meta t-label-s"><span>space/48</span><span>48px</span></div><div><div class="sp__bar" style="width:4.8rem"></div></div></div><div class="sp"><div class="sp__meta t-label-s"><span>space/64</span><span>64px</span></div><div><div class="sp__bar" style="width:6.4rem"></div></div></div><div class="sp"><div class="sp__meta t-label-s"><span>space/80</span><span>80px</span></div><div><div class="sp__bar" style="width:8rem"></div></div></div><div class="sp"><div class="sp__meta t-label-s"><span>space/120</span><span>120px</span></div><div><div class="sp__bar" style="width:12rem"></div></div></div><div class="sp"><div class="sp__meta t-label-s"><span>space/160</span><span>160px</span></div><div><div class="sp__bar" style="width:16rem"></div></div></div>
+    <div class="kit-specs" style="margin-top:var(--space-40)"><div class="kit-spec"><span class="t-label-s">radius/none</span><b>0px</b></div><div class="kit-spec"><span class="t-label-s">radius/pill</span><b>100px</b></div><div class="kit-spec"><span class="t-label-s">radius/round</span><b>50%</b></div><div class="kit-spec"><span class="t-label-s">stroke/hairline</span><b>1px</b></div><div class="kit-spec"><span class="t-label-s">stroke/bar</span><b>2px</b></div><div class="kit-spec"><span class="t-label-s">size/button</span><b>64px</b></div><div class="kit-spec"><span class="t-label-s">size/card</span><b>360px</b></div><div class="kit-spec"><span class="t-label-s">size/dot</span><b>10px</b></div><div class="kit-spec"><span class="t-label-s">size/marker</span><b>20px</b></div></div>
+  </section>
+
+  <section class="kit-sec">
+    <div class="kit-sec__head"><p class="t-label">06 · Motion</p><p class="t-body">Кривые и длительности анимации прототипа.</p></div>
+    <div class="mo"><div class="mo__card"><svg viewBox="-4 -4 108 108"><path class="axis" d="M0 0V100H100"/><path class="curve" d="M0 100C16 0 30 0 100 0"/></svg><span class="t-label">motion/ease/out</span><span class="t-label-s muted">cubic-bezier(0.16, 1, 0.3, 1) ≈ GSAP power4.out</span></div><div class="mo__card"><svg viewBox="-4 -4 108 108"><path class="axis" d="M0 0V100H100"/><path class="curve" d="M0 100C65 100 35 0 100 0"/></svg><span class="t-label">motion/ease/in-out</span><span class="t-label-s muted">cubic-bezier(0.65, 0, 0.35, 1) ≈ GSAP power3.inOut</span></div><div class="mo__card"><div class="sp__meta t-label-s"><span>motion/duration/fast</span><span>300ms</span></div><div class="sp__meta t-label-s"><span>motion/duration/base</span><span>800ms</span></div><div class="sp__meta t-label-s"><span>motion/duration/slow</span><span>1200ms</span></div><div class="sp__meta t-label-s"><span>motion/duration/intro</span><span>1400ms</span></div></div></div>
+  </section>
+
+  <section class="kit-sec">
+    <div class="kit-sec__head"><p class="t-label">07 · Components</p><p class="t-body">Каждый компонент — в обеих темах, со всеми вариантами и состояниями. Состояния (hover, active, disabled) показаны статично.</p></div>
+    <p class="kit-sub t-label">Header</p><div class="bleed"><div class="panel" data-theme="dark"><span class="panel__theme t-label-s">dark</span><div class="bleed-stage"><header class="hdr">
+  <a class="logo" href="#">mono<span class="logo__sub t-label">design</span></a>
+  <nav class="nav t-ui"><a class="nav-link is-active" href="#">Projects</a><a class="nav-link" href="#">Services</a><a class="nav-link" href="#">Process</a><a class="nav-link" href="#">Studio</a><a class="nav-link" href="#">Journal</a></nav>
+  <div class="hdr__right t-ui"><span class="theme-btn t-label"><span class="theme-btn__dot"></span>Theme</span><a class="link-cta" href="#">Let’s talk <span class="arr">↗</span></a></div>
+  <span class="hline hdr__line"></span></header></div></div></div><div class="bleed"><div class="panel" data-theme="light"><span class="panel__theme t-label-s">light</span><div class="bleed-stage"><header class="hdr">
+  <a class="logo" href="#">mono<span class="logo__sub t-label">design</span></a>
+  <nav class="nav t-ui"><a class="nav-link is-active" href="#">Projects</a><a class="nav-link" href="#">Services</a><a class="nav-link" href="#">Process</a><a class="nav-link" href="#">Studio</a><a class="nav-link" href="#">Journal</a></nav>
+  <div class="hdr__right t-ui"><span class="theme-btn t-label"><span class="theme-btn__dot"></span>Theme</span><a class="link-cta" href="#">Let’s talk <span class="arr">↗</span></a></div>
+  <span class="hline hdr__line"></span></header></div></div></div>
+    <p class="kit-sub t-label">Footer / Process bar</p><div class="bleed"><div class="panel" data-theme="dark"><span class="panel__theme t-label-s">dark</span><div class="bleed-stage"><footer class="foot">
+  <span class="hline foot__line"></span>
+  <div class="foot__scroll t-label"><span class="foot__tick"></span>Scroll</div>
+  <ol class="steps t-label"><li class="step"><b>01</b> Analysis</li><li class="step"><b>02</b> Design</li><li class="step"><b>03</b> Engineering</li><li class="step is-active"><b>04</b> Build</li><li class="step"><b>05</b> Handover</li></ol>
+  <div class="foot__ratio t-label">70 / 30 — aesthetics × function</div></footer></div></div></div><div class="bleed"><div class="panel" data-theme="light"><span class="panel__theme t-label-s">light</span><div class="bleed-stage"><footer class="foot">
+  <span class="hline foot__line"></span>
+  <div class="foot__scroll t-label"><span class="foot__tick"></span>Scroll</div>
+  <ol class="steps t-label"><li class="step"><b>01</b> Analysis</li><li class="step"><b>02</b> Design</li><li class="step"><b>03</b> Engineering</li><li class="step is-active"><b>04</b> Build</li><li class="step"><b>05</b> Handover</li></ol>
+  <div class="foot__ratio t-label">70 / 30 — aesthetics × function</div></footer></div></div></div>
+    <div class="cmp"><div class="cmp__info"><p class="t-label">Logo</p><p class="t-body">Wordmark «mono» + подпись DESIGN. type/logo + type/label.</p></div><div class="cmp__themes"><div class="panel" data-theme="dark"><span class="panel__theme t-label-s">dark</span><a class="logo" href="#">mono<span class="logo__sub t-label">design</span></a></div><div class="panel" data-theme="light"><span class="panel__theme t-label-s">light</span><a class="logo" href="#">mono<span class="logo__sub t-label">design</span></a></div></div></div><div class="cmp"><div class="cmp__info"><p class="t-label">Nav link</p><p class="t-body">Пункт навигации. Hover — линия выезжает слева направо, Active — акцент + линия.</p></div><div class="cmp__themes"><div class="panel" data-theme="dark"><span class="panel__theme t-label-s">dark</span><div class="row t-ui"><div class="var"><span class="var__label t-label-s">Default</span><a class="nav-link" href="#">Projects</a></div><div class="var"><span class="var__label t-label-s">Hover</span><a class="nav-link is-hover" href="#">Projects</a></div><div class="var"><span class="var__label t-label-s">Active</span><a class="nav-link is-active" href="#">Projects</a></div></div></div><div class="panel" data-theme="light"><span class="panel__theme t-label-s">light</span><div class="row t-ui"><div class="var"><span class="var__label t-label-s">Default</span><a class="nav-link" href="#">Projects</a></div><div class="var"><span class="var__label t-label-s">Hover</span><a class="nav-link is-hover" href="#">Projects</a></div><div class="var"><span class="var__label t-label-s">Active</span><a class="nav-link is-active" href="#">Projects</a></div></div></div></div></div><div class="cmp"><div class="cmp__info"><p class="t-label">Link CTA</p><p class="t-body">Текстовое действие в шапке. Hover — акцент, стрелка уходит по диагонали.</p></div><div class="cmp__themes"><div class="panel" data-theme="dark"><span class="panel__theme t-label-s">dark</span><div class="row t-ui"><div class="var"><span class="var__label t-label-s">Default</span><a class="link-cta" href="#">Let’s talk <span class="arr">↗</span></a></div><div class="var"><span class="var__label t-label-s">Hover</span><a class="link-cta is-hover" href="#">Let’s talk <span class="arr">↗</span></a></div></div></div><div class="panel" data-theme="light"><span class="panel__theme t-label-s">light</span><div class="row t-ui"><div class="var"><span class="var__label t-label-s">Default</span><a class="link-cta" href="#">Let’s talk <span class="arr">↗</span></a></div><div class="var"><span class="var__label t-label-s">Hover</span><a class="link-cta is-hover" href="#">Let’s talk <span class="arr">↗</span></a></div></div></div></div></div><div class="cmp"><div class="cmp__info"><p class="t-label">Button / Primary</p><p class="t-body">Главное действие. Высота 64, pill, отступ 24. Hover — инверсия, стрелка смещается.</p></div><div class="cmp__themes"><div class="panel" data-theme="dark"><span class="panel__theme t-label-s">dark</span><div class="row"><div class="var"><span class="var__label t-label-s">Default</span><a class="btn btn--primary" href="#">Schedule a Consultation <span class="arr">→</span></a></div><div class="var"><span class="var__label t-label-s">Hover</span><a class="btn btn--primary is-hover" href="#">Schedule a Consultation <span class="arr">→</span></a></div><div class="var"><span class="var__label t-label-s">Disabled</span><a class="btn btn--primary is-disabled" href="#">Schedule a Consultation <span class="arr">→</span></a></div></div></div><div class="panel" data-theme="light"><span class="panel__theme t-label-s">light</span><div class="row"><div class="var"><span class="var__label t-label-s">Default</span><a class="btn btn--primary" href="#">Schedule a Consultation <span class="arr">→</span></a></div><div class="var"><span class="var__label t-label-s">Hover</span><a class="btn btn--primary is-hover" href="#">Schedule a Consultation <span class="arr">→</span></a></div><div class="var"><span class="var__label t-label-s">Disabled</span><a class="btn btn--primary is-disabled" href="#">Schedule a Consultation <span class="arr">→</span></a></div></div></div></div></div><div class="cmp"><div class="cmp__info"><p class="t-label">Button / Secondary</p><p class="t-body">Второстепенное действие, контур + счётчик. Hover — заливка цветом текста.</p></div><div class="cmp__themes"><div class="panel" data-theme="dark"><span class="panel__theme t-label-s">dark</span><div class="row"><div class="var"><span class="var__label t-label-s">Default</span><a class="btn btn--secondary" href="#">View Projects <span class="btn__count t-label-s">24</span></a></div><div class="var"><span class="var__label t-label-s">Hover</span><a class="btn btn--secondary is-hover" href="#">View Projects <span class="btn__count t-label-s">24</span></a></div><div class="var"><span class="var__label t-label-s">Disabled</span><a class="btn btn--secondary is-disabled" href="#">View Projects <span class="btn__count t-label-s">24</span></a></div></div></div><div class="panel" data-theme="light"><span class="panel__theme t-label-s">light</span><div class="row"><div class="var"><span class="var__label t-label-s">Default</span><a class="btn btn--secondary" href="#">View Projects <span class="btn__count t-label-s">24</span></a></div><div class="var"><span class="var__label t-label-s">Hover</span><a class="btn btn--secondary is-hover" href="#">View Projects <span class="btn__count t-label-s">24</span></a></div><div class="var"><span class="var__label t-label-s">Disabled</span><a class="btn btn--secondary is-disabled" href="#">View Projects <span class="btn__count t-label-s">24</span></a></div></div></div></div></div><div class="cmp"><div class="cmp__info"><p class="t-label">Theme toggle</p><p class="t-body">Переключатель темы в шапке.</p></div><div class="cmp__themes"><div class="panel" data-theme="dark"><span class="panel__theme t-label-s">dark</span><span class="theme-btn t-label"><span class="theme-btn__dot"></span>Dark</span></div><div class="panel" data-theme="light"><span class="panel__theme t-label-s">light</span><span class="theme-btn t-label"><span class="theme-btn__dot"></span>Dark</span></div></div></div><div class="cmp"><div class="cmp__info"><p class="t-label">Section tag / Label</p><p class="t-body">Чертёжные подписи: тег секции (акцент), метаданные, пометки.</p></div><div class="cmp__themes"><div class="panel" data-theme="dark"><span class="panel__theme t-label-s">dark</span><div class="var"><div class="var"><span class="var__label t-label-s">Tag</span><span class="tag t-label">[ 01 ] Turnkey interior renovation</span></div><div class="var"><span class="var__label t-label-s">Meta</span><span class="t-label muted">Fig. 024 — Villa Lumière</span></div><div class="var"><span class="var__label t-label-s">Note (label-s)</span><span class="t-label-s muted">[ Living area — after ]</span></div></div></div><div class="panel" data-theme="light"><span class="panel__theme t-label-s">light</span><div class="var"><div class="var"><span class="var__label t-label-s">Tag</span><span class="tag t-label">[ 01 ] Turnkey interior renovation</span></div><div class="var"><span class="var__label t-label-s">Meta</span><span class="t-label muted">Fig. 024 — Villa Lumière</span></div><div class="var"><span class="var__label t-label-s">Note (label-s)</span><span class="t-label-s muted">[ Living area — after ]</span></div></div></div></div></div><div class="cmp"><div class="cmp__info"><p class="t-label">Progress bar + Live dot</p><p class="t-body">Прогресс этапа объекта (--progress). Live dot — статус «на объекте».</p></div><div class="cmp__themes"><div class="panel" data-theme="dark"><span class="panel__theme t-label-s">dark</span><div class="var"><div class="var"><span class="var__label t-label-s">0%</span><div class="bar" style="--progress:0%"><span class="bar__fill"></span></div></div><div class="var"><span class="var__label t-label-s">68%</span><div class="bar" style="--progress:68%"><span class="bar__fill"></span></div></div><div class="var"><span class="var__label t-label-s">100%</span><div class="bar" style="--progress:100%"><span class="bar__fill"></span></div></div><div class="var"><span class="var__label t-label-s">Live dot</span><span class="live"></span></div></div></div><div class="panel" data-theme="light"><span class="panel__theme t-label-s">light</span><div class="var"><div class="var"><span class="var__label t-label-s">0%</span><div class="bar" style="--progress:0%"><span class="bar__fill"></span></div></div><div class="var"><span class="var__label t-label-s">68%</span><div class="bar" style="--progress:68%"><span class="bar__fill"></span></div></div><div class="var"><span class="var__label t-label-s">100%</span><div class="bar" style="--progress:100%"><span class="bar__fill"></span></div></div><div class="var"><span class="var__label t-label-s">Live dot</span><span class="live"></span></div></div></div></div></div><div class="cmp"><div class="cmp__info"><p class="t-label">Status card</p><p class="t-body">«Now on site»: объект, этап, прогресс, срок. Поверхность surface, обводка surface-line.</p></div><div class="cmp__themes"><div class="panel" data-theme="dark"><span class="panel__theme t-label-s">dark</span><aside class="card">
+  <div class="card__row t-label"><span class="live"></span>Now on site</div>
+  <p class="t-title-s">Villa Lumière</p>
+  <div class="card__row card__row--between t-label"><span>Stage 04 / 05 — Build</span><span>68%</span></div>
+  <div class="bar"><span class="bar__fill"></span></div>
+  <div class="card__row card__row--between t-label card__muted"><span>Engineering · MEP</span><span>Handover Q3</span></div>
+</aside></div><div class="panel" data-theme="light"><span class="panel__theme t-label-s">light</span><aside class="card">
+  <div class="card__row t-label"><span class="live"></span>Now on site</div>
+  <p class="t-title-s">Villa Lumière</p>
+  <div class="card__row card__row--between t-label"><span>Stage 04 / 05 — Build</span><span>68%</span></div>
+  <div class="bar"><span class="bar__fill"></span></div>
+  <div class="card__row card__row--between t-label card__muted"><span>Engineering · MEP</span><span>Handover Q3</span></div>
+</aside></div></div></div><div class="cmp"><div class="cmp__info"><p class="t-label">Step / Steps</p><p class="t-body">Этапы процесса. Состояния: Default, Done, Active.</p></div><div class="cmp__themes"><div class="panel" data-theme="dark"><span class="panel__theme t-label-s">dark</span><div class="row t-label"><div class="var"><span class="var__label t-label-s">Default</span><span class="step"><b>05</b> Handover</span></div><div class="var"><span class="var__label t-label-s">Done</span><span class="step is-done"><b>01</b> Analysis</span></div><div class="var"><span class="var__label t-label-s">Active</span><span class="step is-active"><b>04</b> Build</span></div></div><div class="var"><span class="var__label t-label-s">Steps</span><ol class="steps t-label"><li class="step is-done"><b>01</b> Analysis</li><li class="step is-done"><b>02</b> Design</li><li class="step is-done"><b>03</b> Engineering</li><li class="step is-active"><b>04</b> Build</li><li class="step"><b>05</b> Handover</li></ol></div></div><div class="panel" data-theme="light"><span class="panel__theme t-label-s">light</span><div class="row t-label"><div class="var"><span class="var__label t-label-s">Default</span><span class="step"><b>05</b> Handover</span></div><div class="var"><span class="var__label t-label-s">Done</span><span class="step is-done"><b>01</b> Analysis</span></div><div class="var"><span class="var__label t-label-s">Active</span><span class="step is-active"><b>04</b> Build</span></div></div><div class="var"><span class="var__label t-label-s">Steps</span><ol class="steps t-label"><li class="step is-done"><b>01</b> Analysis</li><li class="step is-done"><b>02</b> Design</li><li class="step is-done"><b>03</b> Engineering</li><li class="step is-active"><b>04</b> Build</li><li class="step"><b>05</b> Handover</li></ol></div></div></div></div><div class="cmp"><div class="cmp__info"><p class="t-label">Dimension line / Cross marker</p><p class="t-body">Чертёжный слой: размерная линия (H, V) с засечками и маркер-перекрестие 20. Маркеры ставятся на пересечения линий сетки.</p></div><div class="cmp__themes"><div class="panel" data-theme="dark"><span class="panel__theme t-label-s">dark</span><div class="row" style="gap:var(--space-56)"><div class="var"><span class="var__label t-label-s">Dimension / H</span><div style="position:relative;width:24rem;height:2rem"><div class="dim dim--h" style="left:0;right:0;top:1rem"><span class="t-label-s">6 700</span></div></div></div><div class="var"><span class="var__label t-label-s">Dimension / V</span><div style="position:relative;width:3rem;height:12rem"><div class="dim dim--v" style="top:0;bottom:0;left:0"><span class="t-label-s">+3.200</span></div></div></div><div class="var"><span class="var__label t-label-s">Cross</span><div style="position:relative;width:1.6rem;height:1.6rem"><span class="cross" style="left:0;top:0"></span></div></div></div></div><div class="panel" data-theme="light"><span class="panel__theme t-label-s">light</span><div class="row" style="gap:var(--space-56)"><div class="var"><span class="var__label t-label-s">Dimension / H</span><div style="position:relative;width:24rem;height:2rem"><div class="dim dim--h" style="left:0;right:0;top:1rem"><span class="t-label-s">6 700</span></div></div></div><div class="var"><span class="var__label t-label-s">Dimension / V</span><div style="position:relative;width:3rem;height:12rem"><div class="dim dim--v" style="top:0;bottom:0;left:0"><span class="t-label-s">+3.200</span></div></div></div><div class="var"><span class="var__label t-label-s">Cross</span><div style="position:relative;width:1.6rem;height:1.6rem"><span class="cross" style="left:0;top:0"></span></div></div></div></div></div></div><div class="cmp"><div class="cmp__info"><p class="t-label">Column window (Т-паттерн)</p><p class="t-body">5 колонн = 5 колонок сетки контентной зоны, зазор = гаттер 8. Уступы верхов кратны ряду (--off). --k: 1 — уступы, 0 — сомкнуты.</p></div><div class="cmp__themes"><div class="panel" data-theme="dark"><span class="panel__theme t-label-s">dark</span><div class="mini-win"><div class="dim dim--h"><span class="t-label-s">6 700</span></div><span class="cross cross--tl"></span><div class="slats"><div class="slat" style="--i:0;--off:5rem"><div class="ph"></div><span class="slat__id t-label-s">A1</span></div><div class="slat" style="--i:1;--off:0rem"><div class="ph"></div><span class="slat__id t-label-s">A2</span></div><div class="slat" style="--i:2;--off:10rem"><div class="ph"></div><span class="slat__id t-label-s">A3</span></div><div class="slat" style="--i:3;--off:5rem"><div class="ph"></div><span class="slat__id t-label-s">A4</span></div><div class="slat" style="--i:4;--off:0rem"><div class="ph"></div><span class="slat__id t-label-s">A5</span></div></div></div></div><div class="panel" data-theme="light"><span class="panel__theme t-label-s">light</span><div class="mini-win"><div class="dim dim--h"><span class="t-label-s">6 700</span></div><span class="cross cross--tl"></span><div class="slats"><div class="slat" style="--i:0;--off:5rem"><div class="ph"></div><span class="slat__id t-label-s">A1</span></div><div class="slat" style="--i:1;--off:0rem"><div class="ph"></div><span class="slat__id t-label-s">A2</span></div><div class="slat" style="--i:2;--off:10rem"><div class="ph"></div><span class="slat__id t-label-s">A3</span></div><div class="slat" style="--i:3;--off:5rem"><div class="ph"></div><span class="slat__id t-label-s">A4</span></div><div class="slat" style="--i:4;--off:0rem"><div class="ph"></div><span class="slat__id t-label-s">A5</span></div></div></div></div></div></div><div class="cmp"><div class="cmp__info"><p class="t-label">Project card</p><p class="t-body">Карточка проекта следующего блока. Ширина — 2 колонки сетки (широкая — 3), фото 5:6.</p></div><div class="cmp__themes"><div class="panel" data-theme="dark"><span class="panel__theme t-label-s">dark</span><div class="row" style="align-items:flex-end;flex-wrap:nowrap"><div class="var"><span class="var__label t-label-s">Project</span><article class="proj" style="width:12rem"><div class="ph proj__ph"></div><p class="t-label-s">Villa Lumière</p></article></div><div class="var"><span class="var__label t-label-s">Project</span><article class="proj" style="width:12rem"><div class="ph proj__ph proj__ph--b"></div><p class="t-label-s">Ostozhenka</p></article></div><div class="var"><span class="var__label t-label-s">Project</span><article class="proj" style="width:12rem"><div class="ph proj__ph proj__ph--c"></div><p class="t-label-s">Arbat</p></article></div></div></div><div class="panel" data-theme="light"><span class="panel__theme t-label-s">light</span><div class="row" style="align-items:flex-end;flex-wrap:nowrap"><div class="var"><span class="var__label t-label-s">Project</span><article class="proj" style="width:12rem"><div class="ph proj__ph"></div><p class="t-label-s">Villa Lumière</p></article></div><div class="var"><span class="var__label t-label-s">Project</span><article class="proj" style="width:12rem"><div class="ph proj__ph proj__ph--b"></div><p class="t-label-s">Ostozhenka</p></article></div><div class="var"><span class="var__label t-label-s">Project</span><article class="proj" style="width:12rem"><div class="ph proj__ph proj__ph--c"></div><p class="t-label-s">Arbat</p></article></div></div></div></div></div><div class="cmp"><div class="cmp__info"><p class="t-label">Photo caption</p><p class="t-body">Подпись проекта поверх фото (on-photo), с затемнением.</p></div><div class="cmp__themes"><div class="panel" data-theme="dark"><span class="panel__theme t-label-s">dark</span><div class="cap-demo"><div class="ph ph--full"></div><div class="win__scrim"></div><div class="caption"><p class="t-label">Villa Lumière · 420 m² · 14 months</p><p class="caption__title t-title-l">From structure<br>to atmosphere.</p></div></div></div><div class="panel" data-theme="light"><span class="panel__theme t-label-s">light</span><div class="cap-demo"><div class="ph ph--full"></div><div class="win__scrim"></div><div class="caption"><p class="t-label">Villa Lumière · 420 m² · 14 months</p><p class="caption__title t-title-l">From structure<br>to atmosphere.</p></div></div></div></div></div>
+  </section>
+</main>
+</body>
+</html>

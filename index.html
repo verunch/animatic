@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mono design — Renovation. Managed.</title>
+  <script>
+    // Режим и тема до первой отрисовки: ?mode=static&theme=light
+    (function () {
+      var q = new URLSearchParams(location.search), r = document.documentElement;
+      var t = q.get('theme'); try { t = t || localStorage.getItem('mono-theme'); } catch (e) {}
+      if (t === 'light' || t === 'dark') r.dataset.theme = t;
+      r.dataset.mode = q.get('mode') === 'static' ? 'static' : 'motion';
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+
+  <!-- Слой 0: чертёжная сетка -->
+  <div class="grid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="grid-rows" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <span class="vline" aria-hidden="true"></span>
+
+  <!-- Шапка -->
+  <header class="hdr">
+    <a class="logo" href="#">mono<span class="logo__sub t-label">design</span></a>
+    <nav class="nav t-ui">
+      <a class="nav-link" href="#">Projects</a>
+      <a class="nav-link" href="#">Services</a>
+      <a class="nav-link" href="#">Process</a>
+      <a class="nav-link" href="#">Studio</a>
+      <a class="nav-link" href="#">Journal</a>
+    </nav>
+    <div class="hdr__right t-ui">
+      <button class="theme-btn t-label" type="button" aria-label="Toggle theme"><span class="theme-btn__dot"></span><span class="theme-btn__label">Dark</span></button>
+      <a class="link-cta" href="#">Let’s talk <span class="arr">↗</span></a>
+    </div>
+    <span class="hline hdr__line"></span>
+  </header>
+
+  <!-- Интро слева сверху -->
+  <div class="intro" data-depth="0.15">
+    <p class="tag t-label">[ 01 ] Turnkey interior renovation</p>
+    <p class="t-body muted">Analysis, design, engineering, construction and handover —&nbsp;one studio, one point of contact, one standard of quality.</p>
+  </div>
+
+  <!-- Слой 1: архитектурное окно из колонн (T-паттерн) -->
+  <div class="win" id="win">
+    <div class="win__meta t-label">
+      <span>Fig. 024 — Villa Lumière</span>
+      <span>Section A–A</span>
+    </div>
+
+    <div class="slats">
+      <div class="slat" style="--i:0;--off:calc(var(--rstep) * 1)"><div class="ph"></div><span class="slat__id t-label">A1</span></div>
+      <div class="slat" style="--i:1;--off:calc(var(--rstep) * 0)"><div class="ph"></div><span class="slat__id t-label">A2</span></div>
+      <div class="slat" style="--i:2;--off:calc(var(--rstep) * 2)"><div class="ph"></div><span class="slat__id t-label">A3</span></div>
+      <div class="slat" style="--i:3;--off:calc(var(--rstep) * 1)"><div class="ph"></div><span class="slat__id t-label">A4</span></div>
+      <div class="slat" style="--i:4;--off:calc(var(--rstep) * 0)"><div class="ph"></div><span class="slat__id t-label">A5</span></div>
+    </div>
+
+    <!-- Цельный слой фото: появляется, когда колонны сомкнулись (переход) -->
+    <div class="win__full"><div class="ph ph--full"></div><div class="win__scrim"></div></div>
+
+    <!-- Чертёжные пометки поверх окна -->
+    <div class="dim dim--h" aria-hidden="true"><span class="t-label-s">6 700</span></div>
+    <div class="dim dim--v" aria-hidden="true"><span class="t-label-s">+3.200</span></div>
+    <span class="cross cross--tl" aria-hidden="true"></span>
+    <span class="cross cross--br" aria-hidden="true"></span>
+    <span class="win__ph-label t-label-s">[ Living area — after ]</span>
+
+    <div class="win__caption caption">
+      <p class="t-label">Villa Lumière · 420 m² · 14 months</p>
+      <p class="caption__title t-title-l">From structure<br>to atmosphere.</p>
+    </div>
+  </div>
+
+  <!-- Слой 2: карточка «сейчас на объекте» -->
+  <aside class="card" data-depth="0.6">
+    <div class="card__row t-label"><span class="live"></span>Now on site</div>
+    <p class="t-title-s">Villa Lumière</p>
+    <div class="card__row card__row--between t-label"><span>Stage 04 / 05 — Build</span><span>68%</span></div>
+    <div class="bar"><span class="bar__fill"></span></div>
+    <div class="card__row card__row--between t-label card__muted"><span>Engineering · MEP</span><span>Handover Q3</span></div>
+  </aside>
+
+  <!-- Слой 3: типографика -->
+  <h1 class="h1 t-display">
+    <span class="line line--1"><span class="line__in">Renovation.</span></span>
+    <span class="line line--2"><span class="line__in">Managed.</span></span>
+  </h1>
+
+  <div class="lead">
+    <p class="t-body-l">Apartments and villas.<br>Complex transformations.<br>Fully managed.</p>
+    <div class="ctas">
+      <a class="btn btn--primary" href="#">Schedule a Consultation <span class="arr">→</span></a>
+      <a class="btn btn--secondary" href="#">View Projects <span class="btn__count t-label-s">24</span></a>
+    </div>
+  </div>
+
+  <!-- Нижняя полоса: процесс -->
+  <footer class="foot">
+    <span class="hline foot__line"></span>
+    <div class="foot__scroll t-label"><span class="foot__tick"></span>Scroll</div>
+    <ol class="steps t-label">
+      <li class="step"><b>01</b> Analysis</li>
+      <li class="step"><b>02</b> Design</li>
+      <li class="step"><b>03</b> Engineering</li>
+      <li class="step is-active"><b>04</b> Build</li>
+      <li class="step"><b>05</b> Handover</li>
+    </ol>
+    <div class="foot__ratio t-label">70 / 30 — aesthetics × function</div>
+  </footer>
+</section>
+
+<!-- ============ СЛЕДУЮЩИЙ БЛОК ============ -->
+<section class="next" id="next">
+  <div class="next__head">
+    <p class="tag t-label">[ 02 ] Selected projects</p>
+    <h2 class="h2 t-h2">Complex spaces,<br>calmly delivered.</h2>
+  </div>
+  <div class="projects">
+    <article class="proj proj--wide"><div class="ph proj__ph"></div><p class="t-label">Villa Lumière — 420 m²</p></article>
+    <article class="proj"><div class="ph proj__ph proj__ph--b"></div><p class="t-label">Apartment Ostozhenka — 190 m²</p></article>
+    <article class="proj"><div class="ph proj__ph proj__ph--c"></div><p class="t-label">Penthouse Arbat — 260 m²</p></article>
+  </div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

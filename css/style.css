@@ -1,0 +1,422 @@
+/* =========================================================
+   Mono design — компоненты и раскладка hero.
+   Все значения берутся из css/tokens.css (генерируется из tokens/tokens.json).
+   Макет 1440+: 1rem = 10px при ширине 1440, дальше масштабируется.
+   Классы состояний .is-hover / .is-active / .is-disabled повторяют
+   интерактивные состояния статично (для UI kit и Figma).
+   ========================================================= */
+
+/* ---------- Фото (ассеты, не токены) ----------
+   villa-lumiere — hero и первый проект (одна сцена: hero становится кейсом),
+   ostozhenka, arbat — карточки следующего блока.
+   В тёмной теме фото слегка приглушены, чтобы не спорить с типографикой. */
+:root, [data-theme="dark"] {
+  --ph-dim: linear-gradient(rgba(15, 15, 15, .14), rgba(15, 15, 15, .14));
+}
+[data-theme="light"] {
+  --ph-dim: linear-gradient(transparent, transparent);
+}
+:root, [data-theme] {
+  --ph: var(--ph-dim), url("../assets/photo/villa-lumiere.jpg") 50% 50% / cover no-repeat, #16130F;
+  --ph-b: var(--ph-dim), url("../assets/photo/ostozhenka.jpg") 50% 50% / cover no-repeat, #16130F;
+  --ph-c: var(--ph-dim), url("../assets/photo/arbat.jpg") 50% 50% / cover no-repeat, #16130F;
+}
+
+/* Сетка клиента: 7 колонок × 6 рядов, поля 60, гаттер 8 (кадр 1920 × 1080).
+   Колонка и ряд вычисляются из кадра, чтобы не накапливать округление. */
+:root {
+  --m: var(--layout-margin);
+  --gut: var(--layout-gutter);
+  --col: calc((var(--layout-frame-width) - 2 * var(--m) - 6 * var(--gut)) / 7);
+  --row: calc((var(--layout-frame-height) - 2 * var(--m) - 5 * var(--gut)) / 6);
+  --step: calc(var(--col) + var(--gut));   /* шаг колонки */
+  --rstep: calc(var(--row) + var(--gut));  /* шаг ряда */
+  --aside: calc(var(--m) + 2 * var(--step)); /* граница асайда ≈ 577 */
+}
+
+/* ---------- База ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: calc(100vw / 192); }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-family-sans);
+  font-size: var(--type-body-size);
+  line-height: var(--type-body-line);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color .4s ease, color .4s ease;
+}
+a { color: inherit; text-decoration: none; }
+ol, ul { list-style: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+.muted { color: var(--fg-muted); }
+.accent { color: var(--accent); }
+
+/* =========================================================
+   КОМПОНЕНТЫ
+   ========================================================= */
+
+/* ---------- Hairline: горизонтальная линия ---------- */
+.hline {
+  position: absolute;
+  left: 0; right: 0;
+  height: var(--stroke-hairline);
+  background: var(--line);
+  transform-origin: left center;
+}
+
+/* ---------- Logo ---------- */
+.logo {
+  display: inline-flex;
+  align-items: baseline;
+  gap: .6rem;
+  font-family: var(--type-logo-family);
+  font-weight: var(--type-logo-weight);
+  font-size: var(--type-logo-size);
+  line-height: var(--type-logo-line);
+  letter-spacing: var(--type-logo-tracking);
+}
+.logo__sub { color: var(--fg-muted); }
+
+/* ---------- Nav link ---------- */
+.nav-link {
+  position: relative;
+  padding-block: var(--space-4);
+}
+.nav-link::after {
+  content: "";
+  position: absolute; left: 0; right: 0; bottom: 0;
+  height: var(--stroke-hairline);
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--motion-duration-fast) var(--motion-ease-out);
+}
+.nav-link:hover::after, .nav-link.is-hover::after, .nav-link.is-active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+.nav-link.is-active { color: var(--accent); }
+
+/* ---------- Theme toggle ---------- */
+.theme-btn { display: inline-flex; align-items: center; gap: var(--space-8); color: var(--fg-muted); }
+.theme-btn__dot {
+  width: 1rem; height: 1rem; border-radius: var(--radius-round);
+  border: var(--stroke-hairline) solid var(--fg);
+  background: linear-gradient(90deg, var(--fg) 50%, transparent 50%);
+}
+
+/* ---------- Button ---------- */
+.btn {
+  display: inline-flex; align-items: center; gap: var(--space-12);
+  height: var(--size-button);
+  padding: 0 var(--space-24);
+  border-radius: var(--radius-pill);
+  font-family: var(--type-button-family);
+  font-size: var(--type-button-size);
+  line-height: var(--type-button-line);
+  white-space: nowrap;
+  transition: background-color var(--motion-duration-fast), color var(--motion-duration-fast), border-color var(--motion-duration-fast);
+}
+.btn--primary { background: var(--btn-primary-bg); color: var(--btn-primary-fg); }
+.btn--primary:hover, .btn--primary.is-hover { background: var(--btn-primary-bg-hover); color: var(--btn-primary-fg-hover); }
+.btn--secondary { border: var(--stroke-hairline) solid var(--btn-secondary-border); }
+.btn--secondary:hover, .btn--secondary.is-hover { background: var(--btn-secondary-bg-hover); color: var(--btn-secondary-fg-hover); border-color: transparent; }
+.btn.is-disabled { background: var(--btn-disabled-bg); color: var(--fg-disabled); border-color: transparent; pointer-events: none; }
+.btn__count { color: var(--fg-muted); }
+.btn--secondary:hover .btn__count, .btn--secondary.is-hover .btn__count { color: inherit; opacity: .6; }
+.btn.is-disabled .btn__count { color: inherit; }
+.arr { display: inline-block; transition: transform var(--motion-duration-fast) var(--motion-ease-out); }
+.btn:hover .arr, .btn.is-hover .arr { transform: translateX(.4rem); }
+
+/* Ссылка-действие в шапке */
+.link-cta { display: inline-flex; gap: var(--space-8); }
+.link-cta:hover .arr, .link-cta.is-hover .arr { transform: translate(.3rem, -.3rem); }
+.link-cta.is-hover, .link-cta:hover { color: var(--accent); }
+
+/* ---------- Section tag: «[ 01 ] Title» ---------- */
+.tag { color: var(--accent); }
+
+/* ---------- Live dot ---------- */
+.live { display: inline-block; width: var(--size-dot); height: var(--size-dot); border-radius: var(--radius-round); background: var(--accent); }
+
+/* ---------- Progress bar ---------- */
+.bar { position: relative; height: var(--stroke-bar); background: var(--line); }
+.bar__fill { position: absolute; inset: 0 auto 0 0; width: var(--progress, 68%); background: var(--accent); transform-origin: left; }
+
+/* ---------- Status card «Now on site» ---------- */
+.card {
+  width: var(--size-card);
+  padding: var(--space-16);
+  background: var(--surface);
+  border: var(--stroke-hairline) solid var(--surface-line);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+.card__row { display: flex; align-items: center; gap: var(--space-8); }
+.card__row--between { justify-content: space-between; }
+.card__muted { color: var(--fg-muted); }
+
+/* ---------- Process steps ---------- */
+.steps { display: flex; gap: var(--space-40); color: var(--fg-muted); }
+.step b { font-weight: var(--font-weight-regular); margin-right: .6rem; }
+.step.is-active { color: var(--fg); }
+.step.is-active b { color: var(--accent); }
+.step.is-done { color: var(--fg); opacity: .6; }
+
+/* ---------- Dimension line ---------- */
+.dim { position: absolute; color: var(--fg-muted); }
+.dim--h { height: var(--stroke-hairline); background: var(--line); }
+.dim--h::before, .dim--h::after {
+  content: ""; position: absolute; top: -.4rem; width: var(--stroke-hairline); height: .9rem; background: var(--fg-muted);
+}
+.dim--h::before { left: 0; }
+.dim--h::after { right: 0; }
+.dim--h span {
+  position: absolute; left: 50%; top: -.7rem; transform: translateX(-50%);
+  padding: 0 var(--space-8); background: var(--bg);
+}
+.dim--v { width: var(--stroke-hairline); background: var(--line); }
+.dim--v::before, .dim--v::after {
+  content: ""; position: absolute; left: -.4rem; height: var(--stroke-hairline); width: .9rem; background: var(--fg-muted);
+}
+.dim--v::before { top: 0; }
+.dim--v::after { bottom: 0; }
+.dim--v span {
+  position: absolute; top: 50%; left: .6rem;
+  writing-mode: vertical-rl;
+  transform: translateY(-50%);
+}
+
+/* ---------- Cross marker ---------- */
+.cross { position: absolute; width: var(--size-marker); height: var(--size-marker); }
+.cross::before, .cross::after { content: ""; position: absolute; background: var(--fg); }
+.cross::before { left: 50%; top: 0; bottom: 0; width: var(--stroke-hairline); }
+.cross::after { top: 50%; left: 0; right: 0; height: var(--stroke-hairline); }
+
+/* ---------- Column (slat) — окно из Т-паттерна ---------- */
+.slats {
+  --gap: .8rem;
+  --k: 1;               /* 1 — уступы колонн, 0 — сомкнуты */
+  position: absolute;
+  inset: 0;
+  display: flex;
+  gap: var(--gap);
+  container-type: size;
+}
+.slat {
+  position: relative;
+  flex: 1 1 0;
+  margin-top: calc(var(--off) * var(--k));
+  overflow: hidden;
+}
+.ph { background: var(--ph); }
+.slat .ph {
+  position: absolute;
+  width: 100cqw;
+  height: 100cqh;
+  top: calc(-1 * var(--off) * var(--k));
+  left: calc(-1 * var(--i) * ((100cqw - 4 * var(--gap)) / 5 + var(--gap)));
+}
+.slat__id {
+  position: absolute; top: var(--space-12); left: var(--space-12);
+  padding: .2rem .5rem; background: rgba(15, 15, 15, .45); color: var(--on-photo);
+}
+
+/* ---------- Project card ---------- */
+.proj { display: flex; flex-direction: column; gap: var(--space-12); color: var(--fg-muted); }
+.proj__ph { aspect-ratio: 5 / 6; }
+.proj__ph--b { background: var(--ph-b); }
+.proj__ph--c { background: var(--ph-c); }
+
+/* ---------- Photo caption ---------- */
+.caption { color: var(--on-photo); }
+.caption__title { margin-top: var(--space-12); }
+
+/* =========================================================
+   РАСКЛАДКА HERO — по модульной сетке клиента
+   X: асайд 0–577 · контент 577–1920 (окно = колонки 3–7)
+   Y: шапка в верхнем поле 0–60 · ряд 1 — подписи · ряды 2–6 — окно
+      · полоса этапов в нижнем поле 1020–1080
+   ========================================================= */
+.hero {
+  position: relative;
+  height: var(--layout-frame-height);
+  overflow: hidden;
+}
+
+/* Модульная сетка: колонки и ряды */
+.grid, .grid-rows {
+  position: absolute;
+  inset: var(--m);
+  display: grid;
+  pointer-events: none;
+}
+.grid { grid-template-columns: repeat(var(--layout-columns), 1fr); column-gap: var(--gut); }
+.grid-rows { grid-template-rows: repeat(var(--layout-rows), 1fr); row-gap: var(--gut); }
+.grid i { border-inline: var(--stroke-hairline) solid var(--line-soft); }
+.grid-rows i { border-block: var(--stroke-hairline) solid var(--line-soft); }
+
+/* Граница асайда */
+.vline {
+  position: absolute;
+  top: 0; bottom: 0;
+  left: var(--aside);
+  width: var(--stroke-hairline);
+  background: var(--line);
+  transform-origin: top center;
+}
+
+/* Шапка — в верхнем поле */
+.hdr {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  z-index: 10;
+  height: var(--layout-header);
+  padding: 0 var(--m);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.hdr__line { bottom: 0; }
+.nav {
+  position: absolute;
+  left: calc(var(--m) + 3 * var(--step));
+  display: flex;
+  gap: var(--space-40);
+}
+.hdr__right { display: flex; align-items: center; gap: var(--space-32); }
+
+/* Ряд 1, асайд: интро */
+.intro {
+  position: absolute;
+  top: calc(var(--m) + var(--space-32));
+  left: var(--m);
+  width: calc(2 * var(--col) + var(--gut) - var(--space-48));
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+
+/* Окно: колонки 3–7, ряды 2–6 */
+.win {
+  position: absolute;
+  top: calc(var(--m) + var(--rstep));
+  bottom: var(--m);
+  left: var(--aside);
+  right: var(--m);
+  z-index: 2;
+}
+.slats { --gap: var(--gut); }
+.win__meta {
+  position: absolute;
+  left: 0; right: 0;
+  top: calc(-1 * var(--rstep) + var(--space-32));
+  display: flex;
+  justify-content: space-between;
+  color: var(--fg-muted);
+}
+.win .dim--h { left: 0; right: 0; top: calc(-1 * var(--space-40)); }
+.win .dim--v { top: 0; bottom: 0; right: calc(-1 * var(--space-32)); }
+/* Маркеры — на пересечениях: линия асайда × размерная линия, вертикальная размерная × нижнее поле */
+.win .cross--tl { left: calc(var(--size-marker) / -2); top: calc(-1 * var(--space-40) - var(--size-marker) / 2); }
+.win .cross--br { right: calc(-1 * var(--space-32) - var(--size-marker) / 2); bottom: calc(var(--size-marker) / -2); }
+.win__full {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+}
+.ph--full { position: absolute; inset: 0; }
+.win__scrim {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(15, 15, 15, .5) 0%, rgba(15, 15, 15, 0) 22%,
+                                      rgba(15, 15, 15, 0) 55%, rgba(15, 15, 15, .6) 100%);
+}
+.win__ph-label { position: absolute; right: var(--space-20); bottom: var(--space-20); padding: .2rem .6rem; background: rgba(15, 15, 15, .45); color: var(--on-photo); }
+.win__caption {
+  position: absolute;
+  left: var(--m); bottom: var(--m);
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Карточка: правый край = конец колонки 3, верх = ряд 5 */
+.hero .card {
+  position: absolute;
+  z-index: 4;
+  left: calc(var(--m) + 3 * var(--step) - var(--gut) - var(--size-card));
+  top: calc(var(--m) + 4 * var(--rstep));
+}
+
+/* Заголовок: низ = конец ряда 4; вторая строка начинается от границы асайда */
+.h1 {
+  position: absolute;
+  z-index: 3;
+  left: var(--m);
+  bottom: calc(var(--layout-frame-height) - var(--m) - 4 * var(--rstep) + var(--gut));
+  pointer-events: none;
+}
+.line { display: block; overflow: hidden; padding-bottom: .06em; margin-bottom: -.06em; }
+.line__in { display: block; }
+.line--2 { margin-left: calc(2 * var(--step)); color: var(--accent); }
+.ch { display: inline-block; }
+
+/* Ряды 5–6, асайд: подзаголовок сверху, CTA по низу */
+.lead {
+  position: absolute;
+  z-index: 3;
+  left: var(--m);
+  top: calc(var(--m) + 4 * var(--rstep));
+  bottom: var(--m);
+  width: calc(2 * var(--col) + var(--gut));
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.ctas { display: flex; gap: var(--space-12); }
+
+/* Полоса этапов — в нижнем поле */
+.foot {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  z-index: 3;
+  height: var(--layout-footer);
+  padding: 0 var(--m);
+  display: flex;
+  align-items: center;
+  color: var(--fg-muted);
+}
+.foot__line { top: 0; }
+.foot__scroll { display: flex; align-items: center; gap: var(--space-12); width: calc(3 * var(--step)); }
+.foot__tick { width: var(--stroke-hairline); height: var(--space-16); background: var(--fg); }
+.foot .steps { flex: 1; }
+.foot__ratio { text-align: right; white-space: nowrap; }
+
+/* ---------- Следующий блок: та же сетка ---------- */
+.next {
+  position: relative;
+  z-index: 1;
+  padding: var(--space-120) var(--m) var(--space-160);
+  background: var(--bg);
+}
+.next__head {
+  display: grid;
+  grid-template-columns: repeat(var(--layout-columns), 1fr);
+  column-gap: var(--gut);
+  align-items: end;
+  margin-bottom: var(--space-64);
+}
+.next__head .tag { grid-column: 1 / span 2; }
+.next__head .h2 { grid-column: 3 / -1; }
+.projects { display: grid; grid-template-columns: repeat(var(--layout-columns), 1fr); gap: var(--gut); align-items: end; }
+.projects .proj { grid-column: span 2; }
+.projects .proj--wide { grid-column: 1 / span 3; }
+.projects .proj--wide { align-self: stretch; }
+.proj--wide .proj__ph { aspect-ratio: auto; flex: 1; }
+
+/* ---------- Режимы ---------- */
+[data-mode="static"] .theme-btn { display: none; }
+[data-mode="motion"] .hero { visibility: hidden; }

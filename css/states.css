@@ -1,0 +1,125 @@
+/* =========================================================
+   Ключевые кадры анимации для Figma (Smart Animate), без JS.
+   Подключается только при сборке static/*.html.
+   Кадр фиксирован: 1920 × 1080, 1rem = 10px.
+
+   Правила, чтобы Smart Animate работал:
+   — во всех кадрах один и тот же DOM → одинаковые имена и вложенность слоёв;
+   — ничего не удаляем (никаких display:none): «скрытый» слой = opacity .001
+     (полностью прозрачные узлы конвертеры иногда пропускают);
+   — движение задаём через top / left / margin / width / height,
+     а не через transform: позиция и размер гарантированно переносятся в Figma.
+   ========================================================= */
+
+/* ---------- Сцена ----------
+   body — клиппинг-кадр 1920 × 1080. hero и следующий блок — два слоя в нём:
+   переход к следующему блоку = hero уезжает вверх, .next приезжает снизу. */
+html[data-mode="static"] { font-size: 10px; overflow: hidden; }
+[data-mode="static"] body { position: relative; width: 1920px; height: 1080px; overflow: hidden; }
+[data-mode="static"] .hero { position: absolute; top: 0; left: 0; right: 0; height: 1080px; }
+[data-mode="static"] .next { position: absolute; top: 1080px; left: 0; right: 0; height: 1080px; overflow: hidden; }
+[data-mode="static"] :is(.win__full, .win__caption) { visibility: visible; }
+:root { --o-hide: .001; }
+
+/* Кадры:
+   k00 пусто · k01 сетка · k02 колонны · k03 заголовок · k04 hero
+   k05 смыкание · k06 одно фото · k07 окно раскрыто · k08 следующий блок */
+
+/* =========================================================
+   ВХОД (k00 → k04)
+   ========================================================= */
+
+/* Сетка, граница асайда, линии шапки и подвала прорисовываются (k00 → k01) */
+[data-state="k00"] .grid i { align-self: start; height: 0; }
+[data-state="k00"] .grid-rows i { justify-self: start; width: 0; }
+[data-state="k00"] .vline { bottom: 1080px; }
+[data-state="k00"] .hline { right: 100%; }
+
+/* Колонны поднимаются снизу; фото внутри стоит на месте (k01 → k02 → k03) */
+:is([data-state="k00"], [data-state="k01"]) .slat { --off: 100cqh !important; }
+[data-state="k02"] .slat:nth-child(1) { --off: 62rem !important; }
+[data-state="k02"] .slat:nth-child(2) { --off: 44rem !important; }
+[data-state="k02"] .slat:nth-child(3) { --off: 30rem !important; }
+[data-state="k02"] .slat:nth-child(4) { --off: 42rem !important; }
+[data-state="k02"] .slat:nth-child(5) { --off: 60rem !important; }
+
+/* Размерные линии вытягиваются, пометки проявляются (k02 → k03) */
+:is([data-state="k00"], [data-state="k01"], [data-state="k02"]) .dim--h { right: 100%; }
+:is([data-state="k00"], [data-state="k01"], [data-state="k02"]) .dim--v { bottom: 100%; }
+:is([data-state="k00"], [data-state="k01"], [data-state="k02"])
+  :is(.dim, .cross, .slat__id, .win__ph-label) { opacity: var(--o-hide); }
+:is([data-state="k00"], [data-state="k01"], [data-state="k02"]) .win__meta span {
+  position: relative; top: .8rem; opacity: var(--o-hide);
+}
+
+/* Заголовок выезжает из-под маски строки (k02 → k03) */
+.line__in { position: relative; }
+:is([data-state="k00"], [data-state="k01"], [data-state="k02"]) .line__in { top: 1.15em; }
+
+/* Шапка, интро, подзаголовок, CTA, карточка, полоса этапов (k03 → k04) */
+:is([data-state="k00"], [data-state="k01"], [data-state="k02"], [data-state="k03"]) :is(.logo, .hdr__right, .nav-link) { position: relative; top: -1.2rem; opacity: var(--o-hide); }
+:is([data-state="k00"], [data-state="k01"], [data-state="k02"], [data-state="k03"]) :is(.intro > *, .lead .t-body-l, .ctas .btn) { position: relative; top: 2.4rem; opacity: var(--o-hide); }
+:is([data-state="k00"], [data-state="k01"], [data-state="k02"], [data-state="k03"]) .hero .card { margin-top: 6rem; opacity: var(--o-hide); }
+:is([data-state="k00"], [data-state="k01"], [data-state="k02"], [data-state="k03"]) .bar__fill { width: 0; }
+:is([data-state="k00"], [data-state="k01"], [data-state="k02"], [data-state="k03"]) :is(.foot__scroll, .step, .foot__ratio) { position: relative; top: 1rem; opacity: var(--o-hide); }
+
+/* =========================================================
+   СКРОЛЛ (k04 → k08)
+   ========================================================= */
+
+/* Текст и чертёжные пометки уходят */
+:is([data-state="k05"], [data-state="k06"], [data-state="k07"], [data-state="k08"]) .intro > * { position: relative; top: -6rem; opacity: var(--o-hide); }
+:is([data-state="k05"], [data-state="k06"], [data-state="k07"], [data-state="k08"]) :is(.lead .t-body-l, .ctas .btn) { position: relative; top: -4rem; opacity: var(--o-hide); }
+:is([data-state="k05"], [data-state="k06"], [data-state="k07"], [data-state="k08"]) .hero .card { margin-top: -18rem; opacity: var(--o-hide); }
+:is([data-state="k05"], [data-state="k06"], [data-state="k07"], [data-state="k08"]) :is(.foot, .win__meta, .dim, .cross, .slat__id, .win__ph-label) { opacity: var(--o-hide); }
+:is([data-state="k05"], [data-state="k06"], [data-state="k07"], [data-state="k08"]) .line { position: relative; }
+[data-state="k05"] :is(.grid, .grid-rows, .vline) { opacity: .35; }
+[data-state="k05"] .h1 { opacity: .22; }
+[data-state="k05"] .line--1 { left: -20rem; }
+[data-state="k05"] .line--2 { left: 14rem; }
+
+/* Колонны выравниваются и смыкаются: k05 — почти, k06 — одно фото */
+[data-state="k05"] .slats { --k: 0; --gap: .2rem; }
+:is([data-state="k06"], [data-state="k07"], [data-state="k08"]) .slats { --k: 0; --gap: 0rem; }
+:is([data-state="k06"], [data-state="k07"], [data-state="k08"]) :is(.grid, .grid-rows, .vline, .h1) { opacity: var(--o-hide); }
+:is([data-state="k06"], [data-state="k07"], [data-state="k08"]) .line--1 { left: -36rem; }
+:is([data-state="k06"], [data-state="k07"], [data-state="k08"]) .line--2 { left: 26rem; }
+:is([data-state="k06"], [data-state="k07"], [data-state="k08"]) .win__full { opacity: 1; }      /* то же фото одним слоем — подмена незаметна */
+:is([data-state="k06"], [data-state="k07"], [data-state="k08"]) .slats { opacity: var(--o-hide); }
+
+/* Окно раскрывается на весь кадр, фото слегка «наезжает», появляется подпись */
+:is([data-state="k07"], [data-state="k08"]) .win { top: 0; left: 0; right: 0; bottom: 0; }
+:is([data-state="k07"], [data-state="k08"]) .ph--full { inset: -6%; }       /* = scale 1.12 */
+:is([data-state="k07"], [data-state="k08"]) .win__caption { opacity: 1; }
+:is([data-state="k07"], [data-state="k08"]) .hdr { color: var(--on-photo); }
+:is([data-state="k07"], [data-state="k08"]) .logo__sub { color: rgba(242, 241, 236, .6); }
+:is([data-state="k07"], [data-state="k08"]) .hdr__line { background: rgba(242, 241, 236, .2); }
+:is([data-state="k00"], [data-state="k01"], [data-state="k02"], [data-state="k03"], [data-state="k04"],
+    [data-state="k05"], [data-state="k06"]) .win__caption { margin-bottom: -4rem; opacity: var(--o-hide); }
+
+/* Переход к следующему блоку: hero уезжает вверх, блок поднимается, контент догоняет */
+[data-state="k08"] .hero { top: -1080px; }
+[data-state="k08"] .next { top: 0; }
+[data-mode="static"] :is(.next__head > *, .proj) { position: relative; top: 12rem; opacity: var(--o-hide); }
+[data-state="k08"] :is(.next__head > *, .proj) { top: 0; opacity: 1; }
+
+/* =========================================================
+   ЧИСТЫЙ ЭКРАН (hero.html): k04 без скрытых служебных слоёв
+   ========================================================= */
+[data-state="clean"] :is(.win__full, .win__caption, .next) { display: none; }
+
+/* =========================================================
+   ДОСКА (board.html): все кадры со всеми элементами на одном холсте.
+   Каждый .board__frame — отдельный кадр 1920 × 1080 со своим data-state.
+   ========================================================= */
+[data-state="board"] { overflow: visible; }
+[data-state="board"] body {
+  width: auto; height: auto; overflow: visible;
+  padding: 8rem; background: #1F1F1E;
+  display: flex; flex-direction: column; gap: 4rem;
+}
+.board__title { font: 400 1.4rem/1.4 var(--font-family-mono); letter-spacing: .08em; text-transform: uppercase; color: #8C8C88; }
+.board__title--main { font-size: 2.4rem; }
+.board__title b { font-weight: 400; color: #F2F1EC; margin-right: 1.6rem; }
+.board__frame { position: relative; width: 1920px; height: 1080px; overflow: hidden; background: var(--bg); color: var(--fg); margin-bottom: 8rem; }
+

@@ -1,0 +1,262 @@
+/* =========================================================
+   СГЕНЕРИРОВАНО из tokens/tokens.json — не править вручную.
+   node tools/build-tokens.mjs
+   ========================================================= */
+
+:root {
+  /* --- Примитивы: цвет --- */
+  --color-olive-500: #7A8452; /* Оливково-каменный, бренд */
+  --color-olive-700: #525C2F; /* Оливково-каменный, глубокий, бренд */
+  --color-blue-500: #2C3C66; /* Инженерный синий, бренд */
+  --color-blue-900: #030824; /* Инженерный синий, глубокий, бренд */
+  --color-grey-300: #B3B3B3; /* Архитектурный серый, бренд */
+  --color-grey-600: #5F5F5F; /* Архитектурный серый, глубокий, бренд */
+  --color-stone-0: #FFFFFF; /* Тёплый каменный белый, бренд */
+  --color-stone-50: #F2F1EC; /* Производный: текст поверх фото */
+  --color-stone-100: #EBEAE5; /* Производный: фон светлой темы (между #FFFFFF и #D8D6CB) */
+  --color-stone-200: #D8D6CB; /* Тёплый каменный белый, бренд */
+  --color-black-700: #3A3A3A; /* Мягкий архитектурный чёрный, бренд */
+  --color-black-800: #1A1A19; /* Производный: поверхность карточек в тёмной теме */
+  --color-black-900: #0F0F0F; /* Мягкий архитектурный чёрный, глубокий, бренд */
+
+  /* --- Шрифты --- */
+  --font-family-sans: "Inter Tight", "Helvetica Neue", Arial, sans-serif;
+  --font-family-mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+
+  /* --- Отступы --- */
+  --space-4: 0.4rem;
+  --space-8: 0.8rem;
+  --space-12: 1.2rem;
+  --space-16: 1.6rem;
+  --space-20: 2rem;
+  --space-24: 2.4rem;
+  --space-32: 3.2rem;
+  --space-40: 4rem;
+  --space-48: 4.8rem;
+  --space-64: 6.4rem;
+  --space-80: 8rem;
+  --space-120: 12rem;
+  --space-160: 16rem;
+
+  /* --- Скругления, обводки --- */
+  --radius-none: 0rem;
+  --radius-pill: 10rem;
+  --radius-round: 50%;
+  --stroke-hairline: 1px;
+  --stroke-bar: 2px;
+
+  /* --- Сетка и каркас --- */
+  --layout-frame-width: 192rem;
+  --layout-frame-height: 108rem;
+  --layout-columns: 7;
+  --layout-rows: 6;
+  --layout-margin: 6rem;
+  --layout-gutter: 0.8rem;
+  --layout-column: 25.029rem;
+  --layout-row: 15.333rem;
+  --layout-aside: 57.7rem;
+  --layout-content: 134.3rem;
+  --layout-header: 6rem;
+  --layout-footer: 6rem;
+
+  /* --- Размеры компонентов --- */
+  --size-button: 6.4rem;
+  --size-card: 36rem;
+  --size-dot: 1rem;
+  --size-marker: 2rem;
+
+  /* --- Движение --- */
+  --motion-duration-fast: 300ms;
+  --motion-duration-base: 800ms;
+  --motion-duration-slow: 1200ms;
+  --motion-duration-intro: 1400ms;
+  --motion-ease-out: cubic-bezier(0.16, 1, 0.3, 1); /* ≈ GSAP power4.out */
+  --motion-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1); /* ≈ GSAP power3.inOut */
+
+  /* --- Типографика --- */
+  --type-display-family: var(--font-family-sans);
+  --type-display-weight: 400;
+  --type-display-size: 20.8rem;
+  --type-display-line: 0.9;
+  --type-display-tracking: -0.055em;
+  --type-h2-family: var(--font-family-sans);
+  --type-h2-weight: 400;
+  --type-h2-size: 10.4rem;
+  --type-h2-line: 0.95;
+  --type-h2-tracking: -0.05em;
+  --type-title-l-family: var(--font-family-sans);
+  --type-title-l-weight: 400;
+  --type-title-l-size: 8rem;
+  --type-title-l-line: 0.95;
+  --type-title-l-tracking: -0.045em;
+  --type-title-s-family: var(--font-family-sans);
+  --type-title-s-weight: 400;
+  --type-title-s-size: 3.2rem;
+  --type-title-s-line: 1;
+  --type-title-s-tracking: -0.03em;
+  --type-logo-family: var(--font-family-sans);
+  --type-logo-weight: 500;
+  --type-logo-size: 3.2rem;
+  --type-logo-line: 1;
+  --type-logo-tracking: -0.04em;
+  --type-body-l-family: var(--font-family-sans);
+  --type-body-l-weight: 400;
+  --type-body-l-size: 2.6rem;
+  --type-body-l-line: 1.3;
+  --type-body-l-tracking: -0.01em;
+  --type-body-family: var(--font-family-sans);
+  --type-body-weight: 400;
+  --type-body-size: 2rem;
+  --type-body-line: 1.45;
+  --type-body-tracking: 0em;
+  --type-ui-family: var(--font-family-sans);
+  --type-ui-weight: 400;
+  --type-ui-size: 1.8rem;
+  --type-ui-line: 1.4;
+  --type-ui-tracking: 0em;
+  --type-button-family: var(--font-family-sans);
+  --type-button-weight: 400;
+  --type-button-size: 1.7rem;
+  --type-button-line: 1;
+  --type-button-tracking: 0em;
+  --type-label-family: var(--font-family-mono);
+  --type-label-weight: 400;
+  --type-label-size: 1.4rem;
+  --type-label-line: 1.4;
+  --type-label-tracking: 0.02em;
+  --type-label-s-family: var(--font-family-mono);
+  --type-label-s-weight: 400;
+  --type-label-s-size: 1.2rem;
+  --type-label-s-line: 1.4;
+  --type-label-s-tracking: 0.02em;
+}
+
+:root, [data-theme="dark"] {
+  --bg: var(--color-black-900);
+  --surface: var(--color-black-800);
+  --fg: var(--color-stone-200);
+  --fg-muted: #D8D6CB85; /* stone.200 @ 52% */
+  --fg-disabled: #D8D6CB4D; /* stone.200 @ 30% */
+  --line: #D8D6CB29; /* stone.200 @ 16% */
+  --line-soft: #D8D6CB0F; /* stone.200 @ 6% */
+  --surface-line: #D8D6CB1F; /* stone.200 @ 12% */
+  --accent: var(--color-olive-500);
+  --accent-alt: var(--color-blue-500);
+  --on-photo: var(--color-stone-50);
+  --btn-primary-bg: var(--color-olive-500);
+  --btn-primary-fg: var(--color-black-900);
+  --btn-primary-bg-hover: var(--color-stone-200);
+  --btn-primary-fg-hover: var(--color-black-900);
+  --btn-secondary-border: #D8D6CB29;
+  --btn-secondary-bg-hover: var(--color-stone-200);
+  --btn-secondary-fg-hover: var(--color-black-900);
+  --btn-disabled-bg: #D8D6CB0F;
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  --bg: var(--color-stone-100);
+  --surface: var(--color-stone-0);
+  --fg: var(--color-black-900);
+  --fg-muted: #0F0F0F85; /* black.900 @ 52% */
+  --fg-disabled: #0F0F0F4D; /* black.900 @ 30% */
+  --line: #0F0F0F29; /* black.900 @ 16% */
+  --line-soft: #0F0F0F0F; /* black.900 @ 6% */
+  --surface-line: #0F0F0F1A; /* black.900 @ 10% */
+  --accent: var(--color-olive-700);
+  --accent-alt: var(--color-blue-500);
+  --on-photo: var(--color-stone-50);
+  --btn-primary-bg: var(--color-olive-700);
+  --btn-primary-fg: var(--color-stone-0);
+  --btn-primary-bg-hover: var(--color-black-900);
+  --btn-primary-fg-hover: var(--color-stone-100);
+  --btn-secondary-border: #0F0F0F29;
+  --btn-secondary-bg-hover: var(--color-black-900);
+  --btn-secondary-fg-hover: var(--color-stone-100);
+  --btn-disabled-bg: #0F0F0F0F;
+  color-scheme: light;
+}
+
+/* --- Текстовые стили (классы) --- */
+.t-display {
+  font-family: var(--type-display-family);
+  font-weight: var(--type-display-weight);
+  font-size: var(--type-display-size);
+  line-height: var(--type-display-line);
+  letter-spacing: var(--type-display-tracking);
+}
+.t-h2 {
+  font-family: var(--type-h2-family);
+  font-weight: var(--type-h2-weight);
+  font-size: var(--type-h2-size);
+  line-height: var(--type-h2-line);
+  letter-spacing: var(--type-h2-tracking);
+}
+.t-title-l {
+  font-family: var(--type-title-l-family);
+  font-weight: var(--type-title-l-weight);
+  font-size: var(--type-title-l-size);
+  line-height: var(--type-title-l-line);
+  letter-spacing: var(--type-title-l-tracking);
+}
+.t-title-s {
+  font-family: var(--type-title-s-family);
+  font-weight: var(--type-title-s-weight);
+  font-size: var(--type-title-s-size);
+  line-height: var(--type-title-s-line);
+  letter-spacing: var(--type-title-s-tracking);
+}
+.t-logo {
+  font-family: var(--type-logo-family);
+  font-weight: var(--type-logo-weight);
+  font-size: var(--type-logo-size);
+  line-height: var(--type-logo-line);
+  letter-spacing: var(--type-logo-tracking);
+}
+.t-body-l {
+  font-family: var(--type-body-l-family);
+  font-weight: var(--type-body-l-weight);
+  font-size: var(--type-body-l-size);
+  line-height: var(--type-body-l-line);
+  letter-spacing: var(--type-body-l-tracking);
+}
+.t-body {
+  font-family: var(--type-body-family);
+  font-weight: var(--type-body-weight);
+  font-size: var(--type-body-size);
+  line-height: var(--type-body-line);
+  letter-spacing: var(--type-body-tracking);
+}
+.t-ui {
+  font-family: var(--type-ui-family);
+  font-weight: var(--type-ui-weight);
+  font-size: var(--type-ui-size);
+  line-height: var(--type-ui-line);
+  letter-spacing: var(--type-ui-tracking);
+}
+.t-button {
+  font-family: var(--type-button-family);
+  font-weight: var(--type-button-weight);
+  font-size: var(--type-button-size);
+  line-height: var(--type-button-line);
+  letter-spacing: var(--type-button-tracking);
+}
+.t-label {
+  font-family: var(--type-label-family);
+  font-weight: var(--type-label-weight);
+  font-size: var(--type-label-size);
+  line-height: var(--type-label-line);
+  letter-spacing: var(--type-label-tracking);
+  text-transform: uppercase;
+}
+.t-label-s {
+  font-family: var(--type-label-s-family);
+  font-weight: var(--type-label-s-weight);
+  font-size: var(--type-label-s-size);
+  line-height: var(--type-label-s-line);
+  letter-spacing: var(--type-label-s-tracking);
+  text-transform: uppercase;
+}
