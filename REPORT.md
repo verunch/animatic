@@ -1,7 +1,9 @@
 # Mono design — Hero Section
 ## Отчёт по пунктам технического задания
 
-Отчёт идёт строго по перечню требований из `documents/` (техническое ТЗ, тексты для Hero, информация о клиенте). По каждому пункту указаны требование, принятое решение, причина и где это посмотреть.
+Отчёт идёт строго по перечню требований клиента (техническое ТЗ, тексты для Hero, информация о клиенте).
+
+Папка `static/` в репозиторий не входит, она собирается локально: `node tools/build-static.mjs`. По каждому пункту указаны требование, принятое решение, причина и где это посмотреть.
 
 Концепция: **«Plan → Place»**, путь от инженерного чертежа к готовому интерьеру.
 
@@ -42,7 +44,7 @@
 
 **Решение:**
 - живой прототип `index.html` (анимация в браузере);
-- видео-аниматик `video/mono-hero-dark.mp4` и `video/mono-hero-light.mp4` (около 17 с, 1920×1080, 30 fps);
+- видео-аниматик для тёмной и светлой темы (около 17 с, 1920×1080, 30 fps), сдаётся отдельно от репозитория;
 - 9 ключевых кадров на тему `static/*-k00…k08.html`. У всех кадров один DOM, скрытые слои не удаляются, а прозрачны, движение задано позицией и размером, а не transform. Поэтому после импорта в Figma слои совпадают по именам, и Smart Animate анимирует их между кадрами. Порядок, триггеры, длительности и кривые — в `FIGMA-ANIMATION.md`.
 
 **Почему так:** доступа к Figma нет, поэтому прототип сделан в коде. Видео показывает логику без установки чего-либо, а статичные состояния дают переход в Figma-прототип.
@@ -163,7 +165,7 @@
 | Требование | Что сдаётся |
 |---|---|
 | 1. Статичный главный экран | Final static — `static/*-final-static.html`, Final static expanded — `static/*-final-static-expanded.html` → импорт в Figma (html.to.design) |
-| 2. Версия с аниматиком (Figma prototype или видео демонстрация логики) | `video/mono-hero-dark.mp4`, `video/mono-hero-light.mp4` + 9 ключевых кадров на тему для Figma-прототипа (Smart Animate, `FIGMA-ANIMATION.md`) |
+| 2. Версия с аниматиком (Figma prototype или видео демонстрация логики) | видео-аниматик (тёмная и светлая темы, сдаётся отдельно) + 9 ключевых кадров на тему для Figma-прототипа (Smart Animate, `FIGMA-ANIMATION.md`) |
 
 ---
 
@@ -201,7 +203,7 @@
 |---|---|---|
 | **Токены** | Примитивы: 13 цветов (10 брендовых из брифа + 3 производных, помечены), шрифты и начертания, отступы 4–160, скругления, обводки, сетка, размеры компонентов, длительности и кривые анимации | `tokens/tokens.json` (W3C Design Tokens) |
 | **Переменные** | Семантическая коллекция с режимами **dark / light**: `bg`, `surface`, `fg`, `fg-muted`, `line`, `accent`, `on-photo`, состояния кнопок (default, hover, disabled) и др. — 19 переменных. 11 текстовых стилей (`display`, `h2`, `title-l/s`, `logo`, `body-l`, `body`, `ui`, `button`, `label`, `label-s`) | `css/tokens.css` (генерируется из JSON) |
-| **Компоненты** | Header, Footer / Process bar, Logo, Nav link, Link CTA, Button Primary / Secondary, Theme toggle, Section tag / Label, Progress bar, Live dot, Status card, Step / Steps, Dimension line, Cross marker, Column window (Т-паттерн), Project card, Photo caption | `css/style.css`, витрина — `static/ui-kit.html` |
+| **Компоненты** | Header, Footer / Process bar, Logo, Nav link, Link CTA, Button Primary / Secondary, Theme toggle, Section tag / Label, Progress bar, Live dot, Status card, Step / Steps, Dimension line, Cross marker, Column window (Т-паттерн), Project card, Photo caption | `css/style.css`, витрина — `ui-kit.html` |
 
 **Состояния компонентов** в UI kit показаны статично: Default, Hover, Active, Done, Disabled. Каждый компонент выведен в обеих темах рядом.
 
@@ -231,9 +233,8 @@ css/ui-kit.css          оформление UI kit
 ui-kit.html             UI kit (генерируется)
 css/states.css          ключевые кадры для статики и Figma
 js/main.js              анимация (GSAP, ScrollTrigger, Lenis)
-static/                 18 ключевых кадров для Figma (9 × 2 темы), без JS
+static/                 18 ключевых кадров для Figma (9 × 2 темы), без JS; собирается локально
 FIGMA-ANIMATION.md      сборка прототипа в Figma
-video/                  аниматик mp4, тёмная и светлая темы
 assets/photo/           фото интерьеров (веб-версии)
 tools/build-*.mjs       сборка токенов, UI kit, статики
 ```
